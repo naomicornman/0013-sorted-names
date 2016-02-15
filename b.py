@@ -21,6 +21,3 @@ with open(babypath) as f:
 	for x in range(10):
 		print (x+1, ('.'), sortlist[x][0],(','), sortlist[x][1])
 
-
-
-

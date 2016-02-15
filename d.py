@@ -5,9 +5,6 @@ DATADIR = 'tempdata'
 URL = 'http://stash.compciv.org/ssa_baby_names/ssa-babynames-nationwide-2014.txt'
 babypath = join(DATADIR, basename(URL))
 
-m_dict = {}
-f_dict = {}
-
 counter = 0
 
 print ("Female")
@@ -33,6 +30,3 @@ with open(babypath) as f:
 				if counter <= 4:
 					counter = counter + 1
 					print (counter, name.ljust(15), babies.rjust(8))
-
-
-
