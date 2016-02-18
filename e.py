@@ -5,10 +5,10 @@ DATADIR = 'tempdata'
 URL = 'http://stash.compciv.org/ssa_baby_names/ssa-babynames-nationwide-2014.txt'
 babypath = join(DATADIR, basename(URL))
 
-totalbabies = 0
+totalbabies = 0.0
 with open(babypath) as f:
 	for line in f:
-		totalbabies += int(line.split(',')[2])
+		totalbabies += float(int(line.split(',')[2]))
 
 sortlist = []
 
@@ -20,8 +20,8 @@ with open(babypath) as f:
 		topbabynum = (splitLine[2])
 		sortlist.append((topbabynames,topbabynum))
 
-	sortlist.sort(key=lambda data: int(data[1]), reverse=True)
-	total = 0 
+	sortlist.sort(key=lambda data: (int(data[1])), reverse=True)
+	total = 0.0 
 	for x in range(10):
 		total += (int(sortlist[x][1]))
 	print ("Names 1 to 10:", "{0:.1f}".format((total/totalbabies) * 100))
@@ -34,12 +34,12 @@ with open(babypath) as f:
 	total = 0 
 	for x in range (99,1000):  
 		total += (int(sortlist[x][1]))
-	print ("Names 101 to 1000:", "{0:.1f}".format((total/totalbabies) * 100))
+	print ("Names 101 to 1000:", round(((total/totalbabies) * 100),1))
 
 	total = 0 
-	for x in range (1001,9999):  
+	for x in range (1000,10001):  
 		total += (int(sortlist[x][1]))
-	print ("Names 1001 to 10000:", "{0:.1f}".format((total/totalbabies) * 100))
+	print ("Names 1001 to 10000:", round(((total/totalbabies) * 100),1))
 
 	total = 0 
 	for x in range (9999,30579):  
